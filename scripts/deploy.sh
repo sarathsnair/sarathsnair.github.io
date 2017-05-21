@@ -1,6 +1,9 @@
 #!/bin/bash
 set -e # exit with nonzero exit code if anything fails
 
+# copy readme file to build folder
+cp README.md build
+
 # go to the build directory and create a *new* Git repo
 cd build
 git init
