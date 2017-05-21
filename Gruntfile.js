@@ -25,6 +25,12 @@ module.exports = function (grunt) {
                 dest: 'build',
                 expand: true
             },
+            html: {
+                cwd: 'websrc',
+                src: ['assets/files/**', 'assets/fonts/**','index.html'],
+                dest: 'build',
+                expand: true
+            }
         },
         clean: {
             build: {
@@ -64,6 +70,18 @@ module.exports = function (grunt) {
                 files: {
                     'build/assets/css/style.min.css': ['build/assets/css/style.min.css']
                 }
+            },
+            js: {
+                files: {
+                    'build/assets/js/app.min.js': [
+                        'websrc/assets/js/jquery.min.js',
+                        'websrc/assets/js/jquery.nicescroll.min.js',
+                        'websrc/assets/js/skel.min.js',
+                        'websrc/assets/js/wow.min.js',
+                        'websrc/assets/js/util.js',
+                        'websrc/assets/js/main.js'
+                    ],
+                }
             }
 
         },
@@ -83,7 +101,7 @@ module.exports = function (grunt) {
         watch: {
             scripts: {
                 files: ['websrc/**'],
-                tasks: ['htmlmin', 'cssmin', 'concat:cssImport', 'uglify'],
+                tasks: ['copy:html', 'cssmin', 'concat:cssImport', 'concat:js'],
                 options: {
                     spawn: false
                 },
@@ -99,6 +117,6 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks('grunt-contrib-watch');
 
-    grunt.registerTask('build', ['clean', 'copy', 'imagemin', 'htmlmin', 'cssmin', 'concat:cssImport', 'uglify', 'watch']);
-    grunt.registerTask('build-prod', ['clean', 'copy', 'imagemin', 'htmlmin', 'cssmin', 'concat:cssImport', 'uglify']);
+    grunt.registerTask('build', ['clean', 'copy:html', 'imagemin', 'cssmin', 'concat:cssImport', 'concat:js', 'watch']);
+    grunt.registerTask('build-prod', ['clean', 'copy:build', 'imagemin', 'htmlmin', 'cssmin', 'concat:cssImport', 'uglify']);
 };
