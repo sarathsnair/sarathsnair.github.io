@@ -7,7 +7,7 @@ module.exports = function (grunt) {
                     banner: '/*! Portfolio - Sarath S Nair */',
                 },
                 files: {
-                    'assets/js/app.min.js': [
+                    'build/assets/js/app.min.js': [
                         'websrc/assets/js/jquery.min.js',
                         'websrc/assets/js/jquery.nicescroll.min.js',
                         'websrc/assets/js/skel.min.js',
@@ -21,8 +21,8 @@ module.exports = function (grunt) {
         copy: {
             build: {
                 cwd: 'websrc',
-                src: ['assets/files/**', 'assets/fonts/**', 'index.html'],
-                dest: '.',
+                src: ['assets/files/**', 'assets/fonts/**'],
+                dest: 'build',
                 expand: true
             },
         },
@@ -39,7 +39,7 @@ module.exports = function (grunt) {
                     minifyCSS: true
                 },
                 files: {
-                    'index.html': 'index.html',
+                    'build/index.html': 'websrc/index.html',
                 }
             }
         },
@@ -50,7 +50,7 @@ module.exports = function (grunt) {
             },
             target: {
                 files: {
-                    'assets/css/style.min.css': ['websrc/assets/css/**/*.css']
+                    'build/assets/css/style.min.css': ['websrc/assets/css/**/*.css']
                 }
             }
         },
@@ -62,7 +62,7 @@ module.exports = function (grunt) {
                     }
                 },
                 files: {
-                    'assets/css/style.min.css': ['assets/css/style.min.css']
+                    'build/assets/css/style.min.css': ['build/assets/css/style.min.css']
                 }
             }
 
@@ -76,7 +76,7 @@ module.exports = function (grunt) {
                     expand: true,
                     cwd: 'websrc/assets/images',
                     src: ['**/*.{png,jpg,gif}'],
-                    dest: 'assets/images'
+                    dest: 'build/assets/images'
                 }]
             }
         }
