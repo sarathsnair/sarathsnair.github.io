@@ -8,7 +8,7 @@ cache:
 env:
   global:
   - GIT_NAME: sarathsnair
-  - GIT_EMAIL: sarathsnair.github.io
+  - GIT_EMAIL: sarathsnairxyz@gmail.com
   - SOURCE_DIR: "build"
   - DEPLOY_BRANCH: source
   - TARGET_BRANCH: master
