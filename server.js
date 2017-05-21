@@ -8,7 +8,7 @@ app.use(compression());
 app.use( express.static('./') );
 // general route
 app.get( '/', ( req, res ) => {
-  res.sendFile( __dirname + '/index.html' );
+  res.sendFile( __dirname +'/websrc' +'/index.html' );
 })
 
 var server = app.listen( 9000, _ => {
