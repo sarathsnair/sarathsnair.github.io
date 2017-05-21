@@ -99,7 +99,6 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks('grunt-contrib-watch');
 
-    // this would be run by typing "grunt test" on the command line
     grunt.registerTask('build', ['clean', 'copy', 'imagemin', 'htmlmin', 'cssmin', 'concat:cssImport', 'uglify', 'watch']);
     grunt.registerTask('build-prod', ['clean', 'copy', 'imagemin', 'htmlmin', 'cssmin', 'concat:cssImport', 'uglify']);
 };
