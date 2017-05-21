@@ -28,7 +28,7 @@ module.exports = function (grunt) {
         },
         clean: {
             build: {
-                src: ['build', 'assets', 'index.html']
+                src: ['build']
             },
         },
         htmlmin: {
