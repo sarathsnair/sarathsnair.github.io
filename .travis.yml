@@ -12,6 +12,7 @@ env:
   - SOURCE_DIR: "build"
   - DEPLOY_BRANCH: source
   - TARGET_BRANCH: master
+  - GH_REF: github.com/sarathsnair/sarathsnair.github.io.git
 before_install: npm install -g grunt-cli
 install: npm install
 before_script: grunt build
