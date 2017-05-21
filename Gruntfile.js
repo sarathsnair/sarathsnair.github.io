@@ -79,6 +79,15 @@ module.exports = function (grunt) {
                     dest: 'build/assets/images'
                 }]
             }
+        },
+        watch: {
+            scripts: {
+                files: ['websrc/**'],
+                tasks: ['htmlmin', 'cssmin', 'concat:cssImport', 'uglify'],
+                options: {
+                    spawn: false
+                },
+            },
         }
     });
     grunt.loadNpmTasks('grunt-contrib-uglify');
@@ -88,7 +97,9 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-htmlmin');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-imagemin');
+    grunt.loadNpmTasks('grunt-contrib-watch');
 
     // this would be run by typing "grunt test" on the command line
-    grunt.registerTask('build', ['clean', 'copy','imagemin', 'htmlmin', 'cssmin', 'concat:cssImport', 'uglify']);
+    grunt.registerTask('build', ['clean', 'copy', 'imagemin', 'htmlmin', 'cssmin', 'concat:cssImport', 'uglify', 'watch']);
+    grunt.registerTask('build-prod', ['clean', 'copy', 'imagemin', 'htmlmin', 'cssmin', 'concat:cssImport', 'uglify']);
 };
