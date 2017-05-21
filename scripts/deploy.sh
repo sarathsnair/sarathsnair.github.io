@@ -1,8 +1,9 @@
 #!/bin/bash
 set -e # exit with nonzero exit code if anything fails
 
-# copy readme file to build folder
+# copy readme and sitemap files to build folder
 cp README.md build
+cp sitemap.xml build
 
 # go to the build directory and create a *new* Git repo
 cd build
@@ -18,7 +19,6 @@ git add .
 git commit -m "Deploy to GitHub Pages - Commit ID - $TRAVIS_COMMIT"
 
 # Force push from the current repo's master branch to the remote
-# repo's gh-pages branch. (All previous history on the gh-pages branch
-# will be lost, since we are overwriting it.) We redirect any output to
-# /dev/null to hide any sensitive credential data that might otherwise be exposed.
-git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master
+# repo's target(here, master) branch. (All previous history on the target branch
+# will be lost, since we are overwriting it.)
+git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:$TARGET_BRANCH
