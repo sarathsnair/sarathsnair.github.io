@@ -5,10 +5,10 @@ var compression = require('compression')
 let app = express();
 
 app.use(compression());
-app.use( express.static('./') );
+app.use( express.static('./build') );
 // general route
 app.get( '/', ( req, res ) => {
-  res.sendFile( __dirname +'/websrc' +'/index.html' );
+  res.sendFile( __dirname+'/build/'+'index.html');
 })
 
 var server = app.listen( 9000, _ => {
