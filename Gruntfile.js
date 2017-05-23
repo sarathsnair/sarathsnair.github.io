@@ -9,7 +9,6 @@ module.exports = function (grunt) {
                 files: {
                     'build/assets/js/app.min.js': [
                         'websrc/assets/js/jquery.min.js',
-                        'websrc/assets/js/jquery.nicescroll.min.js',
                         'websrc/assets/js/skel.min.js',
                         'websrc/assets/js/wow.min.js',
                         'websrc/assets/js/util.js',

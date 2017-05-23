@@ -285,7 +285,7 @@
 				
 				//initialize Wow js
 				new WOW().init();
-				$("html").niceScroll({bouncescroll:true});
+				//$("html").niceScroll({bouncescroll:true});
 
 	});
 
