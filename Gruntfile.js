@@ -27,7 +27,7 @@ module.exports = function (grunt) {
             },
             html: {
                 cwd: 'websrc',
-                src: ['assets/files/**', 'assets/fonts/**','index.html'],
+                src: ['assets/files/**', 'assets/fonts/**', 'index.html'],
                 dest: 'build',
                 expand: true
             }
@@ -58,6 +58,7 @@ module.exports = function (grunt) {
                 files: {
                     'build/assets/css/style.min.css': [
                         'websrc/assets/css/font-awesome.min.css',
+                        'websrc/assets/css/bootstrap.min.css',
                         'websrc/assets/css/main.css',
                         'websrc/assets/css/custom.css',
                         'websrc/assets/css/highlight.css',
