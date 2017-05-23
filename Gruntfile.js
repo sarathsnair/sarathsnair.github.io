@@ -56,7 +56,13 @@ module.exports = function (grunt) {
             },
             target: {
                 files: {
-                    'build/assets/css/style.min.css': ['websrc/assets/css/**/*.css']
+                    'build/assets/css/style.min.css': [
+                        'websrc/assets/css/font-awesome.min.css',
+                        'websrc/assets/css/main.css',
+                        'websrc/assets/css/custom.css',
+                        'websrc/assets/css/highlight.css',
+                        'websrc/assets/css/animate.css'
+                    ]
                 }
             }
         },
