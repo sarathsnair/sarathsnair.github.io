@@ -57,7 +57,7 @@ module.exports = function (grunt) {
                 files: {
                     'build/assets/css/style.min.css': [
                         'websrc/assets/css/font-awesome.min.css',
-                        'websrc/assets/css/bootstrap.min.css',
+                        'websrc/assets/css/bootstrap.css',
                         'websrc/assets/css/main.css',
                         'websrc/assets/css/custom.css',
                         'websrc/assets/css/highlight.css',
