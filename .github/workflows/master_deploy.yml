@@ -22,7 +22,7 @@ jobs:
 
       - name: Updating CNAME file
         run: |
-          echo "sarathsnair.me" > build/CNAME
+          cp CNAME build
           cp sitemap.xml build
           cp README.md build
 
