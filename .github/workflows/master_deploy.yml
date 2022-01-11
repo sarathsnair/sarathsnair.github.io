@@ -20,7 +20,7 @@ jobs:
           npm install
           grunt build-prod
 
-      - name: Updating CNAME file
+      - name: Executing additional commands for CNAME, README and Sitemap files.
         run: |
           cp CNAME build
           cp sitemap.xml build
