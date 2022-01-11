@@ -22,7 +22,9 @@ jobs:
 
       - name: Updating CNAME file
         run: |
-          echo "sarathsnair.me" > ./build/CNAME
+          echo "sarathsnair.me" > build/CNAME
+          cp sitemap.xml build
+          cp README.md build
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4.2.2
