@@ -1,7 +1,7 @@
 {
   "name": "sarath-portfolio",
   "version": "1.0.0",
-  "description": "Portfolio website of Sarath S Nair - sarathsnair.me",
+  "description": "Portfolio website of Sarath S Nair - sarathsnair.me.",
   "main": "index.js",
   "repository": {
     "type": "git",
