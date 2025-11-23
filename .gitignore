@@ -60,5 +60,15 @@ typings/
 
 
 # mac temp file
-
 .DS_Store
+
+# Next.js
+/.next/
+/out/
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# Claude Code
+.claude/

@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "quote": "Sarath is one of the most well-rounded Software Engineers I have come across, with a perfect blend of technical prowess and managerial acumen. A great team player, a pragmatic developer and a fun person to work with.",
+    "name": "Prabhat Kumar Verma",
+    "title": "Director, Software Engineering",
+    "company": "Salesforce",
+    "relationship": "Direct Manager"
+  },
+  {
+    "id": 2,
+    "quote": "Through your focused effort you have become one of the critical and reliable developers in our account. One of the unique qualities I have seen in you is your perseverance to achieve your goals.",
+    "name": "George Job",
+    "title": "Technical Program Leader",
+    "company": "Accenture",
+    "relationship": "Direct Manager"
+  },
+  {
+    "id": 3,
+    "quote": "A technically competent person like Sarath is a valuable asset to any team. Progressive learner, hardcore programmer and one of a kind person who ensures his learning is propagated to the team as well.",
+    "name": "Divya Radhakrishnan",
+    "title": "Technology Architect",
+    "company": "Accenture",
+    "relationship": "Direct Manager"
+  },
+  {
+    "id": 4,
+    "quote": "Diligent, hardworking and conceptually strong. Extremely energetic and a people person with a strong outcome orientation. I am sure he will do extremely well in his life and profession.",
+    "name": "Richa Telang",
+    "title": "HR Partner",
+    "company": "Litmus7 Systems",
+    "relationship": "HR Partner"
+  }
+]

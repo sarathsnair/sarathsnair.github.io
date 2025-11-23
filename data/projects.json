@@ -1,0 +1,37 @@
+[
+  {
+    "id": "open-weather-app",
+    "title": "Open Weather App",
+    "description": "Weather forecasting application using famous openweathermap api - http://openweathermap.org.",
+    "url": "http://github.com/sarathsnair/open-weather-app",
+    "icon": "sun"
+  },
+  {
+    "id": "img-alter",
+    "title": "img-alter, NPM package",
+    "description": "A Javascript module to fill 'ALT' attribute of all images in a web page using Microsoft Vision API.",
+    "url": "https://www.npmjs.com/package/img-alter",
+    "icon": "image"
+  },
+  {
+    "id": "rest-client",
+    "title": "REST Client in AngularJS",
+    "description": "RESTClient extension for Google Chrome which responds to GET, POST, PUT and DELETE methods.",
+    "url": "https://github.com/sarathsnair/RESTClient",
+    "icon": "monitor"
+  },
+  {
+    "id": "dbcrypt",
+    "title": "DBCRYPT: Database Security using Encryption",
+    "description": "The DBCRYPT system supports storing data in encrypted form in an existing database management system in a way that is transparent to the client applications, by using a middleware architecture.",
+    "url": null,
+    "icon": "database"
+  },
+  {
+    "id": "compiler-test",
+    "title": "Compiler-Based Test Case Generation System",
+    "description": "A tool to generate test cases for a Java application. Implemented the parser actions for constructing the Extended Class Dependency Graph (EClDG) model of the object-oriented Java program using syntax-directed translation.",
+    "url": null,
+    "icon": "laptop"
+  }
+]

@@ -1,0 +1,73 @@
+[
+  {
+    "id": "twilio",
+    "company": "Twilio Inc.",
+    "position": "Staff Software Engineer",
+    "url": "https://www.twilio.com/",
+    "startDate": "2022-07",
+    "endDate": "Present",
+    "logo": "/images/twilio.png",
+    "responsibilities": [
+      "Directed the migration of 40+ TaskRouter and Flex Console pages to a modern React monorepo, replacing legacy architecture and delivering a seamless transition with complete handover.",
+      "Engineered the Email dashboard, Activity feed, and Participant Roster features, essential for the Email feature's launch; increased user engagement by 40% and streamlined user activity tracking.",
+      "Implemented real-time participant UI for Flex Video, improving agent collaboration and feature adoption.",
+      "Reduced on-call incidents by ~25% by improving admin UI observability and alert workflows."
+    ]
+  },
+  {
+    "id": "salesforce",
+    "company": "Salesforce.com Inc.",
+    "position": "Senior Member Technical Staff",
+    "url": "https://www.salesforce.com/",
+    "startDate": "2020-01",
+    "endDate": "2022-07",
+    "logo": "/images/salesforce.png",
+    "responsibilities": [
+      "Created the JIT access UI for management plane APIs, used daily by 100+ developers.",
+      "Built and optimized 5+ Salesforce CDP entity home pages used by thousands of enterprise customers, improving data exploration experience for enterprise users.",
+      "Implemented Unified Profile and Data Explorer UIs, enabling relationship visualization across massive datasets.",
+      "Designed reusable Lightning Web Components (LWCs) adopted across Audience 360, cutting UI duplication and maintenance costs."
+    ]
+  },
+  {
+    "id": "litmus7",
+    "company": "Litmus7 Inc.",
+    "position": "Senior Software Engineer",
+    "url": "https://litmus7.com/",
+    "startDate": "2018-07",
+    "endDate": "2019-11",
+    "logo": "/images/litmus7.png",
+    "responsibilities": [
+      "Re-platformed Walmart Canada's eCommerce site using micro-app architecture supporting thousands of daily users.",
+      "Built reusable React components with localization, accessibility, and analytics integration.",
+      "Implemented real-time marketing content delivery, accelerating campaign rollouts without code deployments."
+    ]
+  },
+  {
+    "id": "oracle",
+    "company": "Oracle",
+    "position": "Applications Engineer",
+    "url": "http://www.oracle.com/",
+    "startDate": "2017-05",
+    "endDate": "2018-07",
+    "logo": "/images/oracle.png",
+    "responsibilities": [
+      "Redesigned OFSC dashboards and reports managing 100K+ field technicians in real-time.",
+      "Optimized SQL queries and UI interactions, cutting report load time by 30%."
+    ]
+  },
+  {
+    "id": "wipro",
+    "company": "Wipro Technologies",
+    "position": "Project Engineer",
+    "url": "http://www.wipro.com/",
+    "startDate": "2014-07",
+    "endDate": "2017-05",
+    "logo": "/images/wipro.png",
+    "responsibilities": [
+      "Built responsive e-commerce UIs for global retailers (Walmart Mexico, Sam's Club UK).",
+      "Created modular widgets using RactiveJS and jQuery, improving integration for partner websites.",
+      "Implemented frontend modules for an internal resource management system improving team visibility."
+    ]
+  }
+]

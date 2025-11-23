@@ -1,0 +1,20 @@
+[
+  {
+    "id": "btech",
+    "institution": "Govt. Rajiv Gandhi Institute of Technology, Kottayam",
+    "degree": "Bachelor of Technology (B. Tech) in Computer Science & Engineering",
+    "year": "2014-06"
+  },
+  {
+    "id": "hse",
+    "institution": "MGMNSSHSS Lakkattoor, Kottayam",
+    "degree": "HSE",
+    "year": "2009-03"
+  },
+  {
+    "id": "sslc",
+    "institution": "Govt. HSS Kadappoor",
+    "degree": "SSLC",
+    "year": "2007-03"
+  }
+]

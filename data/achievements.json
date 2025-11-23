@@ -1,0 +1,58 @@
+[
+  {
+    "id": "html5-cert",
+    "title": "HTML5, CSS, PHP Certification",
+    "organization": "HCL Technologies",
+    "date": "2012-01",
+    "type": "certification"
+  },
+  {
+    "id": "dotnet-cert",
+    "title": ".Net Certification",
+    "organization": "Phoenix Solutions",
+    "date": "2012-02",
+    "type": "certification"
+  },
+  {
+    "id": "talent-transformation",
+    "title": "First Place - Talent Transformation",
+    "organization": "Wipro Technologies",
+    "date": "2014-11",
+    "type": "award"
+  },
+  {
+    "id": "winners-circle",
+    "title": "Winners Circle Awards",
+    "organization": "Wipro Technologies",
+    "date": "2015-06",
+    "type": "award"
+  },
+  {
+    "id": "best-joinee",
+    "title": "Best New Joinee Award",
+    "organization": "Wipro Technologies",
+    "date": "2016-05",
+    "type": "award"
+  },
+  {
+    "id": "angular-cert",
+    "title": "AngularJS Foundation Certification",
+    "organization": "SkillSpeed.com",
+    "date": "2016-09",
+    "type": "certification"
+  },
+  {
+    "id": "ibm-cert",
+    "title": "IBM Certified Application Developer - Cloud Platform V1",
+    "organization": "IBM India",
+    "date": "2016-12",
+    "type": "certification"
+  },
+  {
+    "id": "walmart-excellence",
+    "title": "Walmart Excellence Awards 2016-2017",
+    "organization": "Wipro Technologies",
+    "date": "2017-04",
+    "type": "award"
+  }
+]
