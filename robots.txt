@@ -1,0 +1,7 @@
+User-Agent: *
+Allow: /
+Disallow: /api/
+Disallow: /_next/static/
+
+Host: https://sarathsnair.me
+Sitemap: https://sarathsnair.me/sitemap.xml
