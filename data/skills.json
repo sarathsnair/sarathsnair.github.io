@@ -1,0 +1,56 @@
+[
+  {
+    "id": "frontend",
+    "category": "Frontend",
+    "color": "primary",
+    "skills": [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "JavaScript",
+      "Tailwind CSS",
+      "Lightning Web Components",
+      "HTML/CSS",
+      "Framer Motion"
+    ]
+  },
+  {
+    "id": "backend",
+    "category": "Backend & APIs",
+    "color": "secondary",
+    "skills": [
+      "Node.js",
+      "REST APIs",
+      "GraphQL",
+      "SQL",
+      "Microservices",
+      "API Design"
+    ]
+  },
+  {
+    "id": "cloud",
+    "category": "Cloud & DevOps",
+    "color": "accent",
+    "skills": [
+      "AWS",
+      "Docker",
+      "CI/CD",
+      "Kubernetes",
+      "Git",
+      "Monitoring & Observability"
+    ]
+  },
+  {
+    "id": "architecture",
+    "category": "Architecture & Design",
+    "color": "primary",
+    "skills": [
+      "System Design",
+      "Micro-Frontend",
+      "Monorepo",
+      "Component Libraries",
+      "Design Systems",
+      "Performance Optimization"
+    ]
+  }
+]

@@ -2,12 +2,15 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { getProfile } from '@/lib/data';
 import StructuredData from '@/components/StructuredData';
+import GoogleAnalytics from '@/components/GoogleAnalytics';
 import './globals.css';
 
 const inter = Inter({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-inter',
+  preload: true,
+  fallback: ['system-ui', 'arial'],
 });
 
 const profile = getProfile();
@@ -54,11 +57,11 @@ export const metadata: Metadata = {
     siteName: `${profile.name} Portfolio`,
     images: [
       {
-        url: '/images/profilepic.png',
+        url: '/images/profilepic.webp',
         width: 1200,
         height: 630,
         alt: `${profile.name} - Professional Portfolio`,
-        type: 'image/png',
+        type: 'image/webp',
       },
     ],
     emails: [profile.contact.email],
@@ -69,7 +72,7 @@ export const metadata: Metadata = {
     title: `${profile.name} - ${profile.title}`,
     description: profile.bio,
     creator: '@sarath_snair',
-    images: ['/images/profilepic.png'],
+    images: ['/images/profilepic.webp'],
   },
   robots: {
     index: true,
@@ -98,7 +101,21 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.variable}>
       <head>
+        {/* Resource hints for external domains */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+
+        {/* Preload critical hero image */}
+        <link
+          rel="preload"
+          as="image"
+          href="/images/profilepic.webp"
+          type="image/webp"
+        />
+
         <StructuredData />
+        <GoogleAnalytics />
         <script
           dangerouslySetInnerHTML={{
             __html: `

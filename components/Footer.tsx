@@ -3,6 +3,7 @@
 import { getProfile } from '@/lib/data';
 import Link from 'next/link';
 import { Github, Linkedin, Mail, MapPin, ArrowUp } from 'lucide-react';
+import { trackSocialClick, trackSectionNavigation } from '@/lib/analytics';
 
 const profile = getProfile();
 
@@ -34,6 +35,7 @@ export default function Footer() {
             <div className="space-y-4 mb-8">
               <Link
                 href={`mailto:${profile.contact.email}`}
+                onClick={() => trackSocialClick('email')}
                 className="group flex items-center gap-3 text-xl font-bold hover:translate-x-2 transition-transform"
               >
                 <Mail className="w-6 h-6" style={{ color: 'var(--primary)' }} />
@@ -52,14 +54,15 @@ export default function Footer() {
             {/* Social Links */}
             <div className="flex gap-4">
               {[
-                { icon: Github, href: profile.social.github, label: 'Github' },
-                { icon: Linkedin, href: profile.social.linkedin, label: 'LinkedIn' },
+                { icon: Github, href: profile.social.github, label: 'Github', platform: 'github' as const },
+                { icon: Linkedin, href: profile.social.linkedin, label: 'LinkedIn', platform: 'linkedin' as const },
               ].map((social) => (
                 <Link
                   key={social.label}
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackSocialClick(social.platform)}
                   className="w-14 h-14 border-4 border-white flex items-center justify-center hover:bg-white hover:text-black transition-colors"
                 >
                   <social.icon className="w-6 h-6" />
@@ -81,6 +84,7 @@ export default function Footer() {
                 <Link
                   key={link.href}
                   href={link.href}
+                  onClick={() => trackSectionNavigation(link.label)}
                   className="block text-lg font-bold hover:translate-x-2 transition-transform"
                   style={{ color: 'rgba(255,255,255,0.7)' }}
                 >

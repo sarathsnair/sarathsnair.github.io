@@ -4,7 +4,7 @@ const nextConfig: NextConfig = {
   ...(process.env.NODE_ENV === 'production' && { output: 'export' }),
   images: {
     unoptimized: true, // Required for static export
-    formats: ['image/webp'], // Prefer WebP format when possible
+    formats: ['image/webp', 'image/avif'], // Modern image formats
   },
   trailingSlash: true,
   // Performance optimizations
@@ -25,6 +25,7 @@ const nextConfig: NextConfig = {
       transform: 'lucide-react/dist/esm/icons/{{kebabCase member}}',
     },
   },
+  // Note: Cache headers controlled by GitHub Pages via _headers file
 };
 
 export default nextConfig;

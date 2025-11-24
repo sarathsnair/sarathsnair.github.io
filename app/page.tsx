@@ -1,6 +1,8 @@
 'use client';
 
 import dynamic from 'next/dynamic';
+import { useRef } from 'react';
+import { useLazyLoad } from '@/lib/useLazyLoad';
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import SectionDivider from '@/components/SectionDivider';
@@ -24,6 +26,11 @@ const KeyboardNav = dynamic(() => import('@/components/KeyboardNav'), {
 
 // Lazy load below-the-fold components for faster initial page load
 const Experience = dynamic(() => import('@/components/Experience'), {
+  ssr: false,
+  loading: () => <div className="min-h-screen" />,
+});
+
+const Skills = dynamic(() => import('@/components/Skills'), {
   ssr: false,
   loading: () => <div className="min-h-screen" />,
 });
@@ -57,6 +64,22 @@ const ColorPaletteSwitcher = dynamic(() => import('@/components/ColorPaletteSwit
 });
 
 export default function Home() {
+  // Refs for lazy loading sections
+  const experienceRef = useRef<HTMLDivElement>(null);
+  const skillsRef = useRef<HTMLDivElement>(null);
+  const testimonialsRef = useRef<HTMLDivElement>(null);
+  const projectsRef = useRef<HTMLDivElement>(null);
+  const educationRef = useRef<HTMLDivElement>(null);
+  const achievementsRef = useRef<HTMLDivElement>(null);
+
+  // Lazy load sections when they're about to enter viewport
+  const loadExperience = useLazyLoad(experienceRef);
+  const loadSkills = useLazyLoad(skillsRef);
+  const loadTestimonials = useLazyLoad(testimonialsRef);
+  const loadProjects = useLazyLoad(projectsRef);
+  const loadEducation = useLazyLoad(educationRef);
+  const loadAchievements = useLazyLoad(achievementsRef);
+
   return (
     <>
       <PageLoader />
@@ -68,15 +91,40 @@ export default function Home() {
       <main>
         <Hero />
         <SectionDivider variant="line" />
-        <Experience />
+
+        <div ref={experienceRef} className="min-h-screen">
+          {loadExperience && <Experience />}
+        </div>
+
         <SectionDivider variant="blocks" />
-        <Testimonials />
+
+        <div ref={skillsRef} className="min-h-screen">
+          {loadSkills && <Skills />}
+        </div>
+
         <SectionDivider variant="zigzag" />
-        <Projects />
+
+        <div ref={testimonialsRef} className="min-h-screen">
+          {loadTestimonials && <Testimonials />}
+        </div>
+
         <SectionDivider variant="blocks" />
-        <Education />
+
+        <div ref={projectsRef} className="min-h-screen">
+          {loadProjects && <Projects />}
+        </div>
+
         <SectionDivider variant="line" />
-        <Achievements />
+
+        <div ref={educationRef} className="min-h-screen">
+          {loadEducation && <Education />}
+        </div>
+
+        <SectionDivider variant="zigzag" />
+
+        <div ref={achievementsRef} className="min-h-screen">
+          {loadAchievements && <Achievements />}
+        </div>
       </main>
       <Footer />
       <ColorPaletteSwitcher />

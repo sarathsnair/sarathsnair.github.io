@@ -4,6 +4,7 @@ import projects from '@/data/projects.json';
 import education from '@/data/education.json';
 import achievements from '@/data/achievements.json';
 import testimonials from '@/data/testimonials.json';
+import skills from '@/data/skills.json';
 
 export interface Profile {
   name: string;
@@ -67,6 +68,7 @@ export interface Achievement {
   organization: string;
   date: string;
   type: 'certification' | 'award';
+  showCompany: boolean;
 }
 
 export interface Testimonial {
@@ -78,12 +80,20 @@ export interface Testimonial {
   relationship: string;
 }
 
+export interface SkillCategory {
+  id: string;
+  category: string;
+  color: 'primary' | 'secondary' | 'accent';
+  skills: string[];
+}
+
 export const getProfile = (): Profile => profile;
 export const getExperience = (): Experience[] => experience;
 export const getProjects = (): Project[] => projects;
 export const getEducation = (): Education[] => education;
 export const getAchievements = (): Achievement[] => achievements as Achievement[];
 export const getTestimonials = (): Testimonial[] => testimonials;
+export const getSkills = (): SkillCategory[] => skills as SkillCategory[];
 
 export const formatDateRange = (start: string, end: string): string => {
   const formatDate = (dateStr: string): string => {

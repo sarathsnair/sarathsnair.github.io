@@ -1,7 +1,7 @@
 {
   "name": "Sarath S Nair",
   "title": "Software Engineer",
-  "bio": "Staff Engineer with 11+ years of experience building and scaling enterprise web applications for Fortune 100 companies including Twilio, Salesforce, and Walmart. Expert in React, TypeScript, and GraphQL with deep knowledge of micro-frontend and monorepo architectures. Passionate about crafting performant, maintainable UI systems that drive measurable business impact and engineering efficiency.",
+  "bio": "Fullstack Engineer with 11+ years building enterprise web applications at Twilio, Salesforce, and Walmart. Expert in React, TypeScript, and GraphQL with deep knowledge of scalable UI architectures.",
   "location": {
     "city": "Bangalore",
     "state": "Karnataka",
@@ -20,5 +20,5 @@
     "skype": "sarathsnair123"
   },
   "resume": "/assets/files/Resume - Sarath S Nair.pdf",
-  "image": "/images/profilepic.png"
+  "image": "/images/profilepic.webp"
 }

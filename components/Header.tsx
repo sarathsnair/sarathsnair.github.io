@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Menu, X, Home } from 'lucide-react';
 import { useState, useEffect } from 'react';
+import { trackResumeDownload, trackSectionNavigation } from '@/lib/analytics';
 
 const profile = getProfile();
 
@@ -39,7 +40,7 @@ export default function Header() {
       setLastScrollY(currentScrollY);
     };
 
-    window.addEventListener('scroll', controlNavbar);
+    window.addEventListener('scroll', controlNavbar, { passive: true });
     return () => window.removeEventListener('scroll', controlNavbar);
   }, [lastScrollY]);
 
@@ -66,6 +67,7 @@ export default function Header() {
               <Link
                 key={item.href}
                 href={item.href}
+                onClick={() => trackSectionNavigation(item.label)}
                 className="relative group px-4 lg:px-6 py-3 font-bold uppercase tracking-wider text-xs lg:text-sm overflow-hidden"
               >
                 <span className="relative z-10 text-black group-hover:text-white transition-colors">
@@ -81,6 +83,7 @@ export default function Header() {
             href={profile.resume}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackResumeDownload()}
             className="hidden lg:block px-4 lg:px-6 py-3 text-white font-bold uppercase tracking-wider text-xs lg:text-sm border-4 transition-colors hover:bg-white group"
             style={{
               backgroundColor: 'var(--primary)',
@@ -120,7 +123,10 @@ export default function Header() {
               >
                 <Link
                   href={item.href}
-                  onClick={() => setIsOpen(false)}
+                  onClick={() => {
+                    trackSectionNavigation(item.label);
+                    setIsOpen(false);
+                  }}
                   className="text-5xl font-black uppercase text-white hover:text-black transition-colors"
                 >
                   {item.label}
@@ -137,7 +143,10 @@ export default function Header() {
                 href={profile.resume}
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() => setIsOpen(false)}
+                onClick={() => {
+                  trackResumeDownload();
+                  setIsOpen(false);
+                }}
                 className="inline-block px-12 py-6 bg-white text-black font-black text-2xl uppercase border-4 border-white hover:bg-black hover:text-white transition-colors"
               >
                 HIRE ME

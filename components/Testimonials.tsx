@@ -10,6 +10,7 @@ import { animations } from '@/lib/animations';
 import { Quote, Linkedin } from 'lucide-react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import { trackSocialClick } from '@/lib/analytics';
 
 const testimonials = getTestimonials();
 
@@ -17,42 +18,35 @@ function TestimonialCard({ testimonial, index }: { testimonial: Testimonial; ind
   return (
     <Card index={index} padding="md">
         {/* Quote icon */}
-        <div className="mb-4">
+        <div className="mb-4 relative inline-block">
           <div
-            className="w-12 h-12 border-4 border-black flex items-center justify-center rotate-6"
+            className="relative w-12 h-12 border-4 border-black flex items-center justify-center rotate-6"
             style={colorStyles.primaryBg}
           >
-            <Quote className="w-6 h-6 text-white" />
+            <Quote className="w-6 h-6 text-white -rotate-6" />
           </div>
         </div>
 
         {/* Quote text */}
-        <blockquote className="flex-1 mb-6">
-          <p className="text-base md:text-lg leading-[1.7] text-black font-medium">
+        <blockquote className="flex-1 mb-8">
+          <p className="text-base md:text-lg leading-[1.9] text-black font-normal italic">
             &ldquo;{testimonial.quote}&rdquo;
           </p>
         </blockquote>
 
         {/* Author info */}
-        <div className="border-t-4 border-black pt-4 mt-auto">
+        <div className="border-t-4 border-black pt-5 mt-auto">
           <div className="flex items-start justify-between gap-4">
             <div className="flex-1">
-              <div className={`${textStyles.h4} mb-1`}>
+              <div className={`${textStyles.h4} mb-2`}>
                 {testimonial.name}
               </div>
-              <div className="text-sm font-bold text-black mb-2">
+              <div className="text-sm md:text-base font-medium text-black/80 mb-3">
                 {testimonial.title}
               </div>
               <div className="flex flex-wrap items-center gap-2">
                 <Badge variant="primary">
                   {testimonial.company}
-                </Badge>
-                <Badge
-                  variant="sm"
-                  className="text-white border-2 border-black"
-                  style={colorStyles.primaryBg}
-                >
-                  {testimonial.relationship}
                 </Badge>
               </div>
             </div>
@@ -96,28 +90,31 @@ export default function Testimonials() {
         </div>
 
         {/* View More Link */}
-        <motion.div
-          initial={animations.fadeIn.initial}
-          animate={isInView ? animations.fadeIn.animate : animations.fadeIn.initial}
-          transition={{ ...animations.fadeIn.transition, delay: 0.6 }}
-          className="flex justify-center"
-        >
-          <Link
-            href="https://www.linkedin.com/in/sarathsnairxyz"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`group ${buttonStyles.primary}`}
-          >
-            {/* Button shadow */}
+        <div className="flex justify-center mt-8" style={{ position: 'relative', zIndex: 100 }}>
+          <div className="relative">
+            {/* Main Button */}
+            <Link
+              href="https://www.linkedin.com/in/sarathsnairxyz"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => trackSocialClick('linkedin')}
+              className="group relative inline-flex items-center gap-3 px-8 py-4 bg-white border-4 border-black font-black uppercase text-base tracking-wider text-black hover:bg-black hover:text-white transition-all duration-300"
+            >
+              <Linkedin className="w-5 h-5 group-hover:scale-110 group-hover:rotate-12 transition-all duration-300" />
+              <span>View All Recommendations</span>
+            </Link>
+
+            {/* Colored shadow */}
             <div
-              className="absolute inset-0 translate-x-2 translate-y-2 -z-10 transition-transform group-hover:translate-x-3 group-hover:translate-y-3"
+              className="absolute inset-0 translate-x-2 translate-y-2 -z-10 transition-all duration-300"
               style={colorStyles.primaryBg}
             />
 
-            <Linkedin className="w-5 h-5" />
-            <span>View All Recommendations</span>
-          </Link>
-        </motion.div>
+            {/* Corner accents on hover */}
+            <div className="absolute -top-1 -right-1 w-3 h-3 border-t-4 border-r-4 border-black opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+            <div className="absolute -bottom-1 -left-1 w-4 h-4 bg-black opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" style={{ clipPath: 'polygon(0 100%, 100% 0, 100% 100%)' }} />
+          </div>
+        </div>
       </div>
     </section>
   );

@@ -6,7 +6,7 @@ import { Float, Sphere, MeshDistortMaterial } from '@react-three/drei';
 import * as THREE from 'three';
 import { useDeviceCapabilities } from '@/lib/performance';
 
-function AnimatedSphere({ position, color, speed }: { position: [number, number, number]; color: string; speed: number }) {
+function AnimatedSphere({ position, color, speed, isMobile }: { position: [number, number, number]; color: string; speed: number; isMobile: boolean }) {
   const meshRef = useRef<THREE.Mesh>(null);
 
   useFrame((state) => {
@@ -16,14 +16,17 @@ function AnimatedSphere({ position, color, speed }: { position: [number, number,
     }
   });
 
+  // Lower polygon count on mobile for better performance
+  const segments = isMobile ? 32 : 64;
+
   return (
-    <Float speed={speed * 0.3} rotationIntensity={0.2} floatIntensity={0.3}>
-      <Sphere ref={meshRef} args={[1, 64, 64]} position={position} scale={2}>
+    <Float speed={speed * 0.3} rotationIntensity={isMobile ? 0.1 : 0.2} floatIntensity={isMobile ? 0.2 : 0.3}>
+      <Sphere ref={meshRef} args={[1, segments, segments]} position={position} scale={2}>
         <MeshDistortMaterial
           color={color}
           attach="material"
-          distort={0.2}
-          speed={0.5}
+          distort={isMobile ? 0.15 : 0.2}
+          speed={isMobile ? 0.3 : 0.5}
           roughness={0.2}
           metalness={0.8}
           transparent
@@ -131,26 +134,39 @@ export default function ThreeBackground() {
     return null;
   }
 
-  // Reduce complexity on mobile
-  const particleCount = capabilities.isMobile ? 200 : 500;
+  // Optimized particle count for mobile
+  const particleCount = capabilities.particleCount;
 
   return (
-    <div className="fixed inset-0 -z-10">
+    <div className="fixed inset-0 -z-10 opacity-0 animate-fade-in">
       <Canvas
         camera={{ position: [0, 0, 8], fov: 75 }}
         style={{ background: 'transparent' }}
-        frameloop="demand" // Only render when needed
-        dpr={capabilities.isMobile ? 1 : [1, 2]} // Lower DPR on mobile
+        frameloop="always" // Smooth continuous animation
+        dpr={capabilities.isMobile ? [0.8, 1] : [1, 1.5]} // Lower DPR on mobile
+        gl={{
+          antialias: false,
+          powerPreference: 'high-performance',
+          alpha: true,
+          stencil: false,
+          depth: true
+        }}
       >
         <ambientLight intensity={0.5} />
         <directionalLight position={[10, 10, 5]} intensity={1} />
         <directionalLight position={[-10, -10, -5]} intensity={0.5} color={colors.secondary} />
 
-        {!capabilities.isMobile && (
+        {/* Show fewer spheres on mobile but still show them */}
+        {capabilities.isMobile ? (
           <>
-            <AnimatedSphere position={[-3, 2, -2]} color={colors.primary} speed={0.5} />
-            <AnimatedSphere position={[4, -2, -3]} color={colors.secondary} speed={0.7} />
-            <AnimatedSphere position={[0, 0, -5]} color={colors.accent} speed={0.3} />
+            <AnimatedSphere position={[0, 0, -3]} color={colors.primary} speed={0.5} isMobile={true} />
+            <AnimatedSphere position={[3, -1, -4]} color={colors.accent} speed={0.4} isMobile={true} />
+          </>
+        ) : (
+          <>
+            <AnimatedSphere position={[-3, 2, -2]} color={colors.primary} speed={0.5} isMobile={false} />
+            <AnimatedSphere position={[4, -2, -3]} color={colors.secondary} speed={0.7} isMobile={false} />
+            <AnimatedSphere position={[0, 0, -5]} color={colors.accent} speed={0.3} isMobile={false} />
           </>
         )}
 

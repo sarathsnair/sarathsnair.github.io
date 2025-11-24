@@ -6,7 +6,7 @@
     "url": "https://www.twilio.com/",
     "startDate": "2022-07",
     "endDate": "Present",
-    "logo": "/images/twilio.png",
+    "logo": "/images/twilio.webp",
     "responsibilities": [
       "Directed the migration of 40+ TaskRouter and Flex Console pages to a modern React monorepo, replacing legacy architecture and delivering a seamless transition with complete handover.",
       "Engineered the Email dashboard, Activity feed, and Participant Roster features, essential for the Email feature's launch; increased user engagement by 40% and streamlined user activity tracking.",
@@ -21,7 +21,7 @@
     "url": "https://www.salesforce.com/",
     "startDate": "2020-01",
     "endDate": "2022-07",
-    "logo": "/images/salesforce.png",
+    "logo": "/images/salesforce.webp",
     "responsibilities": [
       "Created the JIT access UI for management plane APIs, used daily by 100+ developers.",
       "Built and optimized 5+ Salesforce CDP entity home pages used by thousands of enterprise customers, improving data exploration experience for enterprise users.",
@@ -36,7 +36,7 @@
     "url": "https://litmus7.com/",
     "startDate": "2018-07",
     "endDate": "2019-11",
-    "logo": "/images/litmus7.png",
+    "logo": "/images/litmus7.webp",
     "responsibilities": [
       "Re-platformed Walmart Canada's eCommerce site using micro-app architecture supporting thousands of daily users.",
       "Built reusable React components with localization, accessibility, and analytics integration.",
@@ -50,7 +50,7 @@
     "url": "http://www.oracle.com/",
     "startDate": "2017-05",
     "endDate": "2018-07",
-    "logo": "/images/oracle.png",
+    "logo": "/images/oracle.webp",
     "responsibilities": [
       "Redesigned OFSC dashboards and reports managing 100K+ field technicians in real-time.",
       "Optimized SQL queries and UI interactions, cutting report load time by 30%."
@@ -63,7 +63,7 @@
     "url": "http://www.wipro.com/",
     "startDate": "2014-07",
     "endDate": "2017-05",
-    "logo": "/images/wipro.png",
+    "logo": "/images/wipro.webp",
     "responsibilities": [
       "Built responsive e-commerce UIs for global retailers (Walmart Mexico, Sam's Club UK).",
       "Created modular widgets using RactiveJS and jQuery, improving integration for partner websites.",

@@ -15,74 +15,85 @@ export const durations = {
 } as const;
 
 export const animations = {
-  // Card entrance animation
+  // Card entrance animation - smoother and faster
   cardEntrance: {
-    initial: { opacity: 0, y: 50 },
-    animate: { opacity: 1, y: 0 },
+    initial: { opacity: 0, y: 40, scale: 0.97 },
+    animate: { opacity: 1, y: 0, scale: 1 },
     transition: {
-      duration: durations.normal,
+      duration: 0.5,
       ease: easings.smooth,
     },
   },
 
-  // Card entrance from left
+  // Card entrance from left - smoother and faster
   cardEntranceLeft: {
-    initial: { opacity: 0, x: -50 },
-    animate: { opacity: 1, x: 0 },
+    initial: { opacity: 0, x: -40, rotateY: -10 },
+    animate: { opacity: 1, x: 0, rotateY: 0 },
     transition: {
-      duration: durations.normal,
+      duration: 0.5,
       ease: easings.smooth,
     },
   },
 
-  // Card entrance from right
+  // Card entrance from right - smoother and faster
   cardEntranceRight: {
-    initial: { opacity: 0, x: 50 },
-    animate: { opacity: 1, x: 0 },
+    initial: { opacity: 0, x: 40, rotateY: 10 },
+    animate: { opacity: 1, x: 0, rotateY: 0 },
     transition: {
-      duration: durations.normal,
+      duration: 0.5,
       ease: easings.smooth,
     },
   },
 
-  // Section header animation
+  // Section header animation - faster for smoother flow
   sectionHeader: {
-    initial: { opacity: 0, y: 30 },
-    animate: { opacity: 1, y: 0 },
+    initial: { opacity: 0, y: 30, scale: 0.95 },
+    animate: { opacity: 1, y: 0, scale: 1 },
     transition: {
-      duration: durations.slow,
+      duration: 0.6,
       ease: easings.smooth,
     },
   },
 
-  // Scale entrance
+  // Scale entrance - faster pop
   scaleEntrance: {
-    initial: { opacity: 0, scale: 0.9 },
-    animate: { opacity: 1, scale: 1 },
+    initial: { opacity: 0, scale: 0.9, rotate: -3 },
+    animate: { opacity: 1, scale: 1, rotate: 0 },
     transition: {
-      duration: durations.normal,
-      ease: easings.smooth,
+      duration: 0.5,
+      ease: [0.34, 1.56, 0.64, 1], // Bouncy easing
     },
   },
 
-  // Fade in
+  // Fade in - slower and smoother
   fadeIn: {
     initial: { opacity: 0 },
     animate: { opacity: 1 },
     transition: {
-      duration: durations.normal,
+      duration: 0.8,
       ease: easings.smooth,
+    },
+  },
+
+  // New: Slide up with bounce
+  slideUpBounce: {
+    initial: { opacity: 0, y: 80 },
+    animate: { opacity: 1, y: 0 },
+    transition: {
+      duration: 0.8,
+      ease: [0.34, 1.56, 0.64, 1],
     },
   },
 } as const;
 
 /**
  * Get staggered animation with delay based on index
+ * Reduced default stagger delay for smoother, faster reveals
  */
 export function getStaggeredAnimation(
   baseAnimation: any,
   index: number,
-  staggerDelay: number = 0.15
+  staggerDelay: number = 0.08
 ) {
   return {
     ...baseAnimation,

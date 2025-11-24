@@ -10,6 +10,15 @@ export interface ColorPalette {
 
 export const colorPalettes: ColorPalette[] = [
   {
+    id: 'lime-punch',
+    name: 'Lime Punch',
+    emoji: '🍋',
+    primary: '#84cc16',
+    secondary: '#eab308',
+    accent: '#22c55e',
+    description: 'Energetic & Fresh',
+  },
+  {
     id: 'blue-spectrum',
     name: 'Blue Spectrum',
     emoji: '💙',
@@ -116,15 +125,6 @@ export const colorPalettes: ColorPalette[] = [
     secondary: '#f472b6',
     accent: '#fbbf24',
     description: 'Vibrant & Warm',
-  },
-  {
-    id: 'lime-punch',
-    name: 'Lime Punch',
-    emoji: '🍋',
-    primary: '#84cc16',
-    secondary: '#eab308',
-    accent: '#22c55e',
-    description: 'Energetic & Fresh',
   },
   {
     id: 'indigo-nights',

@@ -8,6 +8,7 @@ import { textStyles, colorStyles } from '@/lib/styles';
 import Link from 'next/link';
 import { Github, ArrowUpRight } from 'lucide-react';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import { trackProjectClick } from '@/lib/analytics';
 
 const projects = getProjects();
 
@@ -15,13 +16,15 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
   return (
     <Card index={index} padding="md">
 
-        {/* Header */}
-        <div className="mb-4">
-          <h3 className={`${textStyles.h3} mb-2`}>
+        {/* Header with asymmetric accent */}
+        <div className="mb-4 relative">
+          <h3 className={`${textStyles.h3} mb-2 relative inline-block`}>
             {project.title}
+            {/* Asymmetric highlight bar */}
+            <div className="absolute -left-3 top-1/2 -translate-y-1/2 w-1 h-8" style={{ backgroundColor: 'var(--primary)' }} />
           </h3>
           {project.description && (
-            <p className="text-sm md:text-base leading-[1.7] text-black">
+            <p className="text-base md:text-lg leading-[1.7] text-black">
               {project.description}
             </p>
           )}
@@ -38,17 +41,20 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
           </div>
         )}
 
-        {/* Links */}
+        {/* Links with asymmetric accents */}
         <div className="flex gap-3 mt-auto">
           {project.github && (
             <Link
               href={project.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 px-4 py-3 bg-white border-2 border-black font-bold uppercase text-xs tracking-wider hover:bg-black hover:text-white transition-colors flex items-center justify-center gap-2"
+              onClick={() => trackProjectClick(project.title, 'github')}
+              className="group/gh relative flex-1 px-4 py-3 bg-white border-2 border-black font-bold uppercase text-xs tracking-wider hover:bg-black hover:text-white transition-all duration-300 flex items-center justify-center gap-2"
             >
-              <Github className="w-4 h-4" />
+              <Github className="w-4 h-4 group-hover/gh:scale-110 transition-transform duration-300" />
               <span>Code</span>
+              {/* Corner accent */}
+              <div className="absolute top-0 left-0 w-2 h-2 bg-black opacity-0 group-hover/gh:opacity-100 transition-opacity duration-300" />
             </Link>
           )}
           {project.demo && (
@@ -56,11 +62,15 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
               href={project.demo}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 px-4 py-3 border-2 border-black font-bold uppercase text-xs tracking-wider text-white transition-colors flex items-center justify-center gap-2 group/btn"
+              onClick={() => trackProjectClick(project.title, 'demo')}
+              className="group/demo relative flex-1 px-4 py-3 border-2 border-black font-bold uppercase text-xs tracking-wider text-white transition-all duration-300 flex items-center justify-center gap-2"
               style={colorStyles.primaryBg}
             >
               <span>Demo</span>
-              <ArrowUpRight className="w-4 h-4 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
+              <ArrowUpRight className="w-4 h-4 group-hover/demo:rotate-45 transition-all duration-300" />
+              {/* Corner accents - asymmetric */}
+              <div className="absolute top-0 right-0 w-3 h-3 border-t-2 border-r-2 border-white opacity-0 group-hover/demo:opacity-100 transition-opacity duration-300" />
+              <div className="absolute bottom-0 left-0 w-2 h-2 bg-white opacity-0 group-hover/demo:opacity-100 transition-opacity duration-300" />
             </Link>
           )}
         </div>
@@ -71,8 +81,9 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
 export default function Projects() {
   const { scrollY } = useScroll();
 
-  // Parallax effect for decorative block - optimized for mobile
-  const yBlock = useTransform(scrollY, [400, 1200], [0, -120]);
+  // Enhanced parallax for decorative blocks
+  const yBlock = useTransform(scrollY, [0, 1500], [0, -200]);
+  const rotateBlock = useTransform(scrollY, [0, 1500], [-12, -25]);
 
   return (
     <section id="projects" className="py-20 md:py-32 bg-white relative overflow-hidden">
@@ -81,10 +92,15 @@ export default function Projects() {
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#000_1px,transparent_1px),linear-gradient(to_bottom,#000_1px,transparent_1px)] bg-[size:4rem_4rem]" />
       </div>
 
-      {/* Decorative blocks with parallax */}
+      {/* Decorative blocks with enhanced parallax */}
       <motion.div
-        className="absolute top-40 left-0 w-48 md:w-72 h-48 md:h-72 -rotate-12 -translate-x-24 md:-translate-x-36"
-        style={{ backgroundColor: 'var(--primary)', opacity: 0.1, y: yBlock }}
+        className="absolute top-40 left-0 w-48 md:w-72 h-48 md:h-72 -translate-x-24 md:-translate-x-36"
+        style={{
+          backgroundColor: 'var(--primary)',
+          opacity: 0.1,
+          y: yBlock,
+          rotate: rotateBlock
+        }}
       />
 
       <div className="container mx-auto px-6 relative z-10">

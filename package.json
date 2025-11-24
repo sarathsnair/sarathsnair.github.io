@@ -4,11 +4,14 @@
   "description": "Modern portfolio website of Sarath S Nair - sarathsnair.me",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "next dev",
+    "dev:turbo": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "export": "next build && next export"
+    "export": "next build && next export",
+    "prod": "pnpm build && serve out -p 3000",
+    "preview": "serve out -p 3000"
   },
   "dependencies": {
     "@react-three/drei": "^10.7.7",
@@ -33,6 +36,8 @@
     "eslint": "^9.17.0",
     "eslint-config-next": "^15.1.0",
     "postcss": "^8.4.49",
+    "serve": "^14.2.5",
+    "sharp": "^0.34.5",
     "tailwindcss": "^3.4.17",
     "typescript": "^5.7.2"
   },

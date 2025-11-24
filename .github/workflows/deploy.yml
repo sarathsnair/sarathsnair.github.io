@@ -37,12 +37,14 @@ jobs:
         run: pnpm run build
         env:
           NODE_ENV: production
+          NEXT_PUBLIC_GA_MEASUREMENT_ID: ${{ secrets.GA_MEASUREMENT_ID }}
 
       - name: Copy additional files 📋
         run: |
           cp CNAME out/ || true
           cp sitemap.xml out/ || true
           cp README.md out/ || true
+          cp public/_headers out/ || true
 
       - name: Deploy to GitHub Pages 🚀
         uses: peaceiris/actions-gh-pages@v4

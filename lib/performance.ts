@@ -39,17 +39,17 @@ export function getDeviceCapabilities(): DeviceCapabilities {
   const memory = (navigator as any).deviceMemory || 4; // GB
   const isLowEnd = cores <= 2 || memory <= 2;
 
-  // Determine if we should load heavy visual effects
+  // Load effects on mobile but with reduced settings (not disabled)
   const shouldLoadHeavyEffects = !prefersReducedMotion && !isLowEnd;
 
-  // Calculate optimal particle count
+  // Calculate optimal particle count - mobile gets reduced but still visual
   let particleCount: number;
   if (prefersReducedMotion || isLowEnd) {
     particleCount = 0; // No particles
   } else if (isMobile) {
-    particleCount = 200;
+    particleCount = 100; // Reduced from 200 for better mobile performance
   } else {
-    particleCount = 500;
+    particleCount = 400; // Reduced from 500 for better performance
   }
 
   // Calculate optimal FPS limit

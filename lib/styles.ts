@@ -13,8 +13,8 @@ export const colorStyles = {
 } as const;
 
 export const cardStyles = {
-  // Base card with border
-  base: 'relative bg-white border-4 border-black',
+  // Base card with border and noise texture
+  base: 'relative bg-white border-4 border-black overflow-hidden',
 
   // Card shadow (offset)
   shadow: 'absolute inset-0 translate-x-2 translate-y-2 -z-10 transition-transform',
@@ -24,20 +24,23 @@ export const cardStyles = {
   paddingSm: 'p-4 md:p-6',
   paddingMd: 'p-6 md:p-8',
   paddingLg: 'p-8 md:p-10',
+
+  // Noise texture overlay for cards
+  noise: 'absolute inset-0 pointer-events-none opacity-[0.02] mix-blend-overlay bg-[url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIGJhc2VGcmVxdWVuY3k9Ii43NSIgc3RpdGNoVGlsZXM9InN0aXRjaCIgdHlwZT0iZnJhY3RhbE5vaXNlIi8+PGZlQ29sb3JNYXRyaXggdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPjwvZmlsdGVyPjxwYXRoIGQ9Ik0wIDBoMzAwdjMwMEgweiIgZmlsdGVyPSJ1cmwoI2EpIiBvcGFjaXR5PSIuMDUiLz48L3N2Zz4=)]',
 } as const;
 
 export const badgeStyles = {
   // Primary badge (black background)
   primary: 'px-2 py-1 md:px-3 bg-black text-white text-xs font-mono uppercase tracking-wider',
 
-  // Outlined badge
-  outline: 'px-2 py-1 md:px-3 bg-white border-2 border-black text-xs font-mono uppercase tracking-wider hover:bg-black hover:text-white transition-colors',
+  // Outlined badge with enhanced hover
+  outline: 'relative px-2 py-1 md:px-3 bg-white border-2 border-black text-xs font-mono uppercase tracking-wider hover:bg-black hover:text-white hover:-translate-y-0.5 hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-200',
 
   // Small badge
   sm: 'px-2 py-0.5 md:px-3 md:py-1 bg-black text-white text-xs font-mono uppercase tracking-wider',
 
-  // Interactive badge
-  interactive: 'cursor-pointer hover:bg-black hover:text-white transition-colors',
+  // Interactive badge with micro-animation
+  interactive: 'cursor-pointer hover:bg-black hover:text-white hover:-translate-y-0.5 hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 active:translate-y-0 active:shadow-none',
 } as const;
 
 export const sectionStyles = {
@@ -69,11 +72,11 @@ export const textStyles = {
 } as const;
 
 export const buttonStyles = {
-  // Primary button
-  primary: 'relative inline-flex items-center gap-3 px-6 py-3 md:px-8 md:py-4 bg-white border-4 border-black font-black uppercase text-base tracking-wider text-black hover:bg-black hover:text-white transition-colors',
+  // Primary button with enhanced hover
+  primary: 'relative inline-flex items-center gap-3 px-6 py-3 md:px-8 md:py-4 bg-white border-4 border-black font-black uppercase text-base tracking-wider text-black hover:bg-black hover:text-white hover:-translate-y-1 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 active:translate-y-0 active:shadow-none',
 
-  // Secondary button
-  secondary: 'relative inline-flex items-center gap-3 px-6 py-3 md:px-8 md:py-4 border-4 border-black font-black uppercase text-base tracking-wider transition-colors',
+  // Secondary button with enhanced hover
+  secondary: 'relative inline-flex items-center gap-3 px-6 py-3 md:px-8 md:py-4 border-4 border-black font-black uppercase text-base tracking-wider hover:-translate-y-1 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 active:translate-y-0 active:shadow-none',
 } as const;
 
 /**

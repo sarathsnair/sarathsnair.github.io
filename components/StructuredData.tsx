@@ -17,7 +17,7 @@ export default function StructuredData() {
     name: profile.name,
     jobTitle: profile.title,
     url: 'https://sarathsnair.me',
-    image: 'https://sarathsnair.me/images/profilepic.png',
+    image: 'https://sarathsnair.me/images/profilepic.webp',
     email: profile.contact.email,
     telephone: profile.contact.phone,
     address: {
